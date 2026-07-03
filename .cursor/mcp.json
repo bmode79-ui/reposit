@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "composio": {
+      "url": "https://connect.composio.dev/mcp",
+      "headers": {
+        "x-consumer-api-key": "${env:COMPOSIO_API_KEY}"
+      }
+    },
+    "google-drive": {
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "auth": {
+        "CLIENT_ID": "${env:GOOGLE_OAUTH_CLIENT_ID}",
+        "CLIENT_SECRET": "${env:GOOGLE_OAUTH_CLIENT_SECRET}",
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly",
+          "https://www.googleapis.com/auth/drive.file"
+        ]
+      }
+    }
+  }
+}
