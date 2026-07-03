@@ -1,7 +1,10 @@
 {
   "mcpServers": {
     "composio": {
-      "url": "https://connect.composio.dev/mcp"
+      "url": "https://connect.composio.dev/mcp",
+      "headers": {
+        "x-consumer-api-key": "${env:COMPOSIO_API_KEY}"
+      }
     },
     "google-drive": {
       "url": "https://drivemcp.googleapis.com/mcp/v1",
