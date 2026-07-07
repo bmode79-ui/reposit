@@ -1,8 +1,12 @@
 {
-  "obsidianVaultName": "Obsidian",
-  "journalFolder": "English",
-  "journalFile": "english-journal.md",
-  "driveSearchQuery": "name = 'english-journal.md' and trashed = false",
-  "driveParentFolderId": "",
+  "driveRootFolderId": "1iJyx9sVEKlUwsKkj-RUDZd1a3-2oe1NF",
+  "driveRootFolderUrl": "https://drive.google.com/drive/folders/1iJyx9sVEKlUwsKkj-RUDZd1a3-2oe1NF",
+  "mindMapRoot": "English-Study",
+  "folders": {
+    "expressions": "01-Expressions",
+    "vocabulary": "02-Vocabulary",
+    "topics": "03-Topics",
+    "grammar": "04-Grammar"
+  },
   "timezone": "Asia/Seoul"
 }
