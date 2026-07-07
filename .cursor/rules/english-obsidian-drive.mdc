@@ -1,0 +1,119 @@
+---
+description: 한국어 입력을 영어로 번역하고 Obsidian MD로 Google Drive에 저장
+alwaysApply: true
+---
+
+# English Study → Obsidian (Google Drive)
+
+사용자가 한국어로 문장·단어·표현을 입력하면 아래 워크플로를 **항상** 따른다.
+
+## 1. 분석 및 번역
+
+입력을 영어로 번역하고, 핵심 단어·표현마다 다음 항목을 제공한다.
+
+| 항목 | 설명 |
+|------|------|
+| **원문** | 사용자가 입력한 한국어 |
+| **번역** | 자연스러운 영어 문장 |
+| **단어** | 핵심 어휘 (문장이면 2~5개) |
+| **뜻** | 핵심 의미 (한국어, 1~2줄) |
+| **원어민 빈도** | 별 5개 (★☆☆☆☆ ~ ★★★★★) |
+| **어체** | 슬랭 / 캐주얼 / 일반 / 포멀 중 하나 (필요 시 복수 표기) |
+| **한글 발음** | 영어를 한글로 읽는 법 |
+| **발음기호** | IPA (미국식 기본, 필요 시 영국식 병기) |
+| **품사** | noun / verb / adj 등 |
+| **뉘앙스** | 뉘앙스·쓰임·주의점 (한국어) |
+| **유의어·반의어** | 비슷한/반대 표현 + 차이점 |
+| **연어·고정 표현** | 자주 붙는 조합 (collocations) |
+| **한국인 흔한 실수** | 직역·오용 등 주의점 |
+| **예문** | 영어 예문 1~2개 |
+| **예문 해석** | 한국어 해석 |
+| **예문 문법** | 해당 예문의 핵심 문법 설명 (한국어) |
+
+### 원어민 빈도 별점 기준
+
+| 별점 | 의미 |
+|------|------|
+| ★☆☆☆☆ | 매우 드묾 (전문·문학·한정 맥락) |
+| ★★☆☆☆ | 가끔 쓰임 (특정 상황·주제) |
+| ★★★☆☆ | 보통 (성인 원어민이 알지만 매일은 안 씀) |
+| ★★★★☆ | 자주 쓰임 (일상 대화·미디어) |
+| ★★★★★ | 핵심어 (거의 모든 원어민이 매일 씀) |
+
+### 어체 기준
+
+| 표기 | 설명 |
+|------|------|
+| **슬랭** | 비격식·세대·그룹 한정 은어 |
+| **캐주얼** | 친구·일상 대화 |
+| **일반** | 누구에게나 무난한 표준어 |
+| **포멀** | 공식·비즈니스·학술 |
+
+## 2. 마인드맵 폴더 구조 (Google Drive)
+
+`english-study/drive-config.json`의 `driveRootFolderId` 사용.
+
+**Drive 루트**: `1iJyx9sVEKlUwsKkj-RUDZd1a3-2oe1NF`
+
+```
+English-Study/
+├── INDEX.md                    ← 마인드맵 허브 (MOC)
+├── 01-Expressions/             ← 표현·문장 (제목: 한국어.md)
+├── 02-Vocabulary/{Topic}/        ← 단어·구 (제목: english-word.md)
+├── 03-Topics/                  ← 주제 허브 (wikilink 연결)
+└── 04-Grammar/                 ← 문법 노트
+```
+
+- **표현**: `01-Expressions/{한국어-표현}.md` (예: `숨이-차올랐다.md`)
+- **단어**: `02-Vocabulary/{주제}/{영단어}.md` (예: `Body-Health/breath.md`)
+- **주제 허브**: `03-Topics/{Topic}.md` — 표현·어휘 wikilink로 연결
+- **INDEX.md**: 최상위 마인드맵, 주제 브랜치로 연결
+
+### 태그 규칙 (파일 내 다수 사용)
+
+YAML frontmatter `tags:` + 본문 `#태그` 병행.
+
+필수 태그: `#english-study`, `#expression` 또는 `#vocabulary`, `#topic/{주제}`, `#register/{어체}`, `#frequency/{N}star`
+
+추가 태그: `#grammar/...`, `#nuance/...`, `#collocations`, `#common-mistakes`, `#korean-learner`, `#obsidian`, 한국어 키워드
+
+### MD 파일 템플릿 (단어)
+
+```markdown
+---
+title: {word}
+tags: [english-study, vocabulary, topic/..., register/..., frequency/Nstar]
+related: ["[[linked-file]]"]
+---
+
+# {word}
+
+#vocabulary #topic/... #register/... (본문에 태그 다수)
+
+- **뜻**: ...
+- **원어민 빈도**: ★★★★★
+- **어체**: ...
+(이하 전체 항목)
+```
+
+## 3. 저장 위치
+
+1. **로컬 미러**: `english-study/vault/English-Study/` (Drive와 동일 구조)
+2. **Google Drive**: MCP `create_file`로 폴더·파일 업로드
+   - 폴더: `mimeType: application/vnd.google-apps.folder`
+   - MD: `textContent` + `disableConversionToGoogleType: true` + `contentMimeType: text/markdown`
+   - `parentId`: 상위 폴더 ID
+
+## 4. Google Drive 업로드
+
+1. Google Drive MCP(`google-drive`) 연결 시:
+   - 폴더 없으면 `create_file`로 생성
+   - 각 MD를 해당 경로에 `create_file`
+   - INDEX·Topic 허브에 wikilink 추가·업데이트
+2. MCP 미연결 시:
+   - 로컬 `english-study/vault/English-Study/`에 저장
+   - Drive MCP 인증 안내
+
+## 5. 응답 형식
+
+채팅에는 요약(번역 + 핵심 어휘 1~2개)을 보여주고, 생성된 MD 파일 경로·Drive 저장 여부를 알린다.
