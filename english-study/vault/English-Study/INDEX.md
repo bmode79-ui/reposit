@@ -20,10 +20,10 @@ created: 2026-07-07
 ## 📂 브랜치 (Branches)
 
 ### [[03-Topics/Body-Health|🏃 Body & Health]]
-신체·건강·호흡 관련 표현과 어휘
+신체·건강·호흡·소화 관련 표현과 어휘
 
-- 표현 → [[01-Expressions/숨이-차올랐다|숨이 차올랐다]]
-- 어휘 → [[02-Vocabulary/Body-Health/breath|breath]] · [[02-Vocabulary/Body-Health/out-of-breath|out of breath]] · [[02-Vocabulary/Body-Health/breathless|breathless]] · [[02-Vocabulary/Body-Health/gasp|gasp]]
+- 표현 → [[01-Expressions/숨이-차올랐다|숨이 차올랐다]] · [[01-Expressions/꼬르륵거리다|꼬르륵거리다]]
+- 어휘 → [[02-Vocabulary/Body-Health/breath|breath]] · [[02-Vocabulary/Body-Health/out-of-breath|out of breath]] · [[02-Vocabulary/Body-Health/breathless|breathless]] · [[02-Vocabulary/Body-Health/gasp|gasp]] · [[02-Vocabulary/Body-Health/stomach|stomach]] · [[02-Vocabulary/Body-Health/growl|growl]] · [[02-Vocabulary/Body-Health/rumble|rumble]] · [[02-Vocabulary/Body-Health/gurgle|gurgle]]
 
 ---
 

@@ -39,6 +39,10 @@ created: 2026-07-07
 | [[02-Vocabulary/Body-Health/out-of-breath\|out of breath]] | 숨이 차다 | ★★★★☆ | 일반 |
 | [[02-Vocabulary/Body-Health/breathless\|breathless]] | 숨 찬; 감탄 | ★★★☆☆ | 일반 |
 | [[02-Vocabulary/Body-Health/gasp\|gasp]] | 헐떡이다 | ★★★☆☆ | 일반 |
+| [[02-Vocabulary/Body-Health/stomach\|stomach]] | 배, 위 | ★★★★★ | 일반 |
+| [[02-Vocabulary/Body-Health/growl\|growl]] | (배가) 꼬르륵 | ★★★☆☆ | 일반 |
+| [[02-Vocabulary/Body-Health/rumble\|rumble]] | 우르르 울리다 | ★★★☆☆ | 일반 |
+| [[02-Vocabulary/Body-Health/gurgle\|gurgle]] | 꼬르륵(물·소화) | ★★☆☆☆ | 일반 |
 
 #vocabulary #word-list #frequency/5star #frequency/4star #frequency/3star
 
