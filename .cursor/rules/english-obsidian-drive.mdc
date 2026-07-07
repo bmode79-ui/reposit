@@ -1,0 +1,74 @@
+---
+description: 한국어 입력을 영어로 번역하고 Obsidian MD로 Google Drive에 저장
+alwaysApply: true
+---
+
+# English Study → Obsidian (Google Drive)
+
+사용자가 한국어로 문장·단어·표현을 입력하면 아래 워크플로를 **항상** 따른다.
+
+## 1. 분석 및 번역
+
+입력을 영어로 번역하고, 핵심 단어·표현마다 다음 항목을 제공한다.
+
+| 항목 | 설명 |
+|------|------|
+| **원문** | 사용자가 입력한 한국어 |
+| **번역** | 자연스러운 영어 문장 |
+| **단어** | 핵심 어휘 (문장이면 2~5개) |
+| **원어민 빈도** | CEFR 레벨 + 코퍼스 빈도 (예: A1, top 500) |
+| **한글 발음** | 영어를 한글로 읽는 법 |
+| **발음기호** | IPA (미국식 기본, 필요 시 영국식 병기) |
+| **품사** | noun / verb / adj 등 |
+| **뉘앙스** | 뉘앙스·쓰임·주의점 (한국어) |
+| **예문** | 영어 예문 1~2개 |
+| **예문 해석** | 한국어 해석 |
+| **예문 문법** | 해당 예문의 핵심 문법 설명 (한국어) |
+
+## 2. MD 파일 저장
+
+`english-study/drive-config.json` 설정을 읽는다.
+
+- **저장 위치**: Google Drive → Obsidian vault → `journalFile` 경로
+- **방식**: 기존 저널 파일에 **append** (새 파일을 매번 만들지 않음)
+- **구분자**: 각 항목 사이에 `---` 와 타임스탬프 헤더 사용
+- **로컬 백업**: `english-study/journal/english-journal.md` 에도 동일 내용 저장
+
+### MD 항목 템플릿
+
+```markdown
+## YYYY-MM-DD HH:MM — {요약}
+
+### 원문
+{한국어}
+
+### 번역
+{English}
+
+### 어휘
+
+#### {word}
+- **원어민 빈도**: {CEFR}, {frequency note}
+- **한글 발음**: {한글}
+- **발음기호**: /{IPA}/
+- **품사**: {POS}
+- **뉘앙스**: {nuance}
+- **예문**: {example}
+- **예문 해석**: {translation}
+- **예문 문법**: {grammar}
+
+---
+```
+
+## 3. Google Drive 업로드
+
+1. Google Drive MCP(`google-drive`)가 연결되어 있으면:
+   - `search_files`로 `journalFile` 검색 → `read_file_content`로 기존 내용 읽기
+   - 기존 내용 + 새 항목을 합쳐 `create_file` 또는 업데이트
+2. MCP 미연결 시:
+   - 로컬 `english-study/journal/english-journal.md`에 저장
+   - 사용자에게 Google Drive MCP 인증 필요 안내
+
+## 4. 응답 형식
+
+채팅에는 요약(번역 + 핵심 어휘 1~2개)을 보여주고, 상세 내용은 MD에 저장했다고 알린다.
