@@ -42,11 +42,16 @@ def format_entry(entry: dict) -> str:
         lines.extend(
             [
                 f"#### {word.get('word', '')}",
+                f"- **뜻**: {word.get('meaning', '')}",
                 f"- **원어민 빈도**: {word.get('frequency', '')}",
+                f"- **어체**: {word.get('register', '')}",
                 f"- **한글 발음**: {word.get('korean_pronunciation', '')}",
                 f"- **발음기호**: {word.get('ipa', '')}",
                 f"- **품사**: {word.get('pos', '')}",
                 f"- **뉘앙스**: {word.get('nuance', '')}",
+                f"- **유의어·반의어**: {word.get('synonyms_antonyms', '')}",
+                f"- **연어·고정 표현**: {word.get('collocations', '')}",
+                f"- **한국인 흔한 실수**: {word.get('common_mistakes', '')}",
                 f"- **예문**: {word.get('example', '')}",
                 f"- **예문 해석**: {word.get('example_translation', '')}",
                 f"- **예문 문법**: {word.get('example_grammar', '')}",
